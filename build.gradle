@@ -1,0 +1,39 @@
+buildscript {
+	ext {
+		springBootVersion = '1.4.3.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+
+jar {
+	baseName = 's3'
+	version = '0.0.1-SNAPSHOT'
+}
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+}
+
+dependencyManagement {
+	imports {
+		mavenBom 'com.amazonaws:aws-java-sdk-bom:1.10.47'
+	}
+}
+
+dependencies {
+	compile 'com.amazonaws:aws-java-sdk-s3'
+	compile('org.springframework.boot:spring-boot-starter')
+	compile('org.springframework.boot:spring-boot-starter-web')
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+}
