@@ -25,5 +25,8 @@ dist/
 nbdist/
 .nb-gradle/
 
+###AWS###
+*.pem
+
 ### Terraform ###
 *.tfstate

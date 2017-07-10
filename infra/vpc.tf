@@ -35,6 +35,10 @@ resource "aws_subnet" "raj_public_subnet_tf" {
   }
 }
 
+/*
+This makes the above subnet a public subnet.
+Attaching an internet gateway to a subnet's route tables makes it a public subnet
+*/
 resource "aws_route_table" "route_table_for_public_subnet" {
   vpc_id = "${aws_vpc.raj_tf.id}"
 
