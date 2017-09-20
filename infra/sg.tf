@@ -19,6 +19,8 @@ resource "aws_security_group" "allow_all_access_from_everywhere" {
 
 
 resource "aws_security_group" "allow_ssh_from_my_ip" {
+//  Also if you fiddle with names of security groups they are recreated.
+//  Also the instances associated to them are also re created
   name        = "allow_ssh_from_my_ip"
   description = "Allow ssh from specific ip"
   vpc_id = "${aws_vpc.raj_tf.id}"
