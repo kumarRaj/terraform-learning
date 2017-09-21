@@ -1,6 +1,7 @@
 resource "aws_security_group" "allow_all_access_from_everywhere" {
   name        = "allow_all_access_from_everywhere"
   description = "Allow all inbound traffic"
+  vpc_id = "${aws_vpc.raj_tf.id}"
 
   ingress {
     from_port   = 0
